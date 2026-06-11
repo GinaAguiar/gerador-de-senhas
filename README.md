@@ -30,7 +30,7 @@ https://ginaaguiar.github.io/gerador-de-senhas/
 
 ## 📸 Prévia do Projeto
 
-![Prévia do projeto](Imagens%20Gerador%20De%20Senhas/captura-tela-projeto.png)
+![Prévia do projeto](Imagens%20Gerador%20De%20Senhas/captura-tela-projeto.png.jpg)
 
 ## 🚀 Objetivo
 
