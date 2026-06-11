@@ -28,11 +28,9 @@ https://ginaaguiar.github.io/gerador-de-senhas/
 - Font Awesome
 - Google Fonts
 
-## 📸 Prévia do projeto
+## 📸 Prévia do Projeto
 
-![Prévia do projeto](Imagens%20Gerador%20De%20Senhas/lobo-capa1.0.png)
-![Prévia do projeto](Imagens%20Gerador%20De%20Senhas/gerador-de-senhas-apresentação1)
-![Prévia do projeto](Imagens%20Gerador%20De%20Senhas/gerador-de-senhas-apresentação2)
+![Prévia do projeto](Imagens%20Gerador%20De%20Senhas/captura-tela-projeto.png)
 
 ## 🚀 Objetivo
 
