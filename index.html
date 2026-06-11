@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gerador de senhas fortes com histórico local.">
+
+    <title>Gerador de Senhas v3.0</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true">
+        <i class="fa-solid fa-check" id="toastIcon" aria-hidden="true"></i>
+        <span id="toastMessage">Operação concluída.</span>
+    </div>
+
+    <main class="container">
+        <header class="app-header">
+            <div class="lock-area" aria-hidden="true">
+                <i class="fa-solid fa-lock lock-icon" id="lockIcon"></i>
+            </div>
+
+            <h1>Gerador de Senhas</h1>
+            <p class="subtitle">Gere senhas fortes e seguras.</p>
+        </header>
+
+        <form id="passwordForm" novalidate>
+            <div class="field-card">
+                <label for="passwordName">Nome da senha</label>
+                <input
+                    type="text"
+                    id="passwordName"
+                    name="passwordName"
+                    maxlength="40"
+                    placeholder="Ex: Instagram, banco, e-mail"
+                    autocomplete="off"
+                    required>
+                <small class="field-error" id="nameError" aria-live="polite"></small>
+            </div>
+
+            <div class="password-field">
+                <label class="sr-only" for="generatedPassword">Senha gerada</label>
+                <input
+                    type="password"
+                    id="generatedPassword"
+                    placeholder="Sua senha aparecerá aqui"
+                    aria-describedby="strengthText"
+                    readonly>
+
+                <button
+                    type="button"
+                    class="icon-button"
+                    id="togglePassword"
+                    title="Mostrar senha"
+                    aria-label="Mostrar senha"
+                    disabled>
+                    <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                </button>
+
+                <button
+                    type="button"
+                    class="icon-button"
+                    id="copyPassword"
+                    title="Copiar senha"
+                    aria-label="Copiar senha"
+                    disabled>
+                    <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <section class="slider-section" aria-labelledby="lengthLabel">
+                <div class="slider-info">
+                    <label id="lengthLabel" for="passwordLength">
+                        Quantidade de caracteres
+                    </label>
+                    <output id="lengthValue" for="passwordLength">16</output>
+                </div>
+
+                <input
+                    type="range"
+                    id="passwordLength"
+                    name="passwordLength"
+                    min="8"
+                    max="30"
+                    value="16">
+            </section>
+
+            <section class="strength-section" aria-label="Força da senha">
+                <div
+                    class="strength-bar"
+                    role="progressbar"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    aria-labelledby="strengthText">
+                    <div id="strengthProgress"></div>
+                </div>
+                <span id="strengthText">Aguardando senha</span>
+            </section>
+
+            <fieldset class="options">
+                <legend class="sr-only">Tipos de caracteres</legend>
+
+                <label>
+                    <input type="checkbox" id="includeLowercase" checked>
+                    <span>Letras minúsculas</span>
+                </label>
+
+                <label>
+                    <input type="checkbox" id="includeUppercase" checked>
+                    <span>Letras maiúsculas</span>
+                </label>
+
+                <label>
+                    <input type="checkbox" id="includeNumbers" checked>
+                    <span>Números</span>
+                </label>
+
+                <label>
+                    <input type="checkbox" id="includeSymbols" checked>
+                    <span>Caracteres especiais</span>
+                </label>
+            </fieldset>
+
+            <small class="options-error" id="optionsError" aria-live="polite"></small>
+
+            <button type="submit" class="generate-button" id="generatePassword">
+                <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+                Gerar Senha
+            </button>
+        </form>
+
+        <section class="history" aria-labelledby="historyTitle">
+            <div class="history-header">
+                <div>
+                    <h2 id="historyTitle">Últimas Senhas</h2>
+                    <span id="selectionStatus" aria-live="polite">Nenhuma selecionada</span>
+                </div>
+
+                <button
+                    type="button"
+                    class="delete-button"
+                    id="deleteSelected"
+                    title="Excluir senhas selecionadas"
+                    aria-label="Excluir senhas selecionadas"
+                    disabled>
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <p class="history-empty" id="historyEmpty">
+                Nenhuma senha gerada ainda.
+            </p>
+
+            <ul id="historyList" aria-label="Histórico de senhas"></ul>
+        </section>
+
+        <footer>
+            Desenvolvido por <strong>Gina P. Aguiar</strong>
+            <span class="version">v3.0</span>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
